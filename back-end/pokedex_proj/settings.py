@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "pokemon_app",
+    "moves_app",
     "rest_framework",
-    "corsheaders",
+    # "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,7 @@ WSGI_APPLICATION = 'pokedex_proj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "pokedex_db",
+        'NAME': "pokedex3_db",
     }
 }
 
