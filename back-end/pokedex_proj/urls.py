@@ -19,24 +19,33 @@ from django.urls import path, include
 from django.http import HttpResponse
 import math
 
+
 def square_area_view(request):
-    area_of_a_square = 2 ** 2
+    area_of_a_square = 2**2
     return HttpResponse(area_of_a_square)
+
 
 def circle_area_view(request):
     print(request.headers)
-    area_of_a_circle = math.pi * (2 ** 2)
+    area_of_a_circle = math.pi * (2**2)
     return HttpResponse(area_of_a_circle)
+
 
 def triangle_area_view(request, height, base):
     print(f"Height: {height}\nBase: {base}")
-    area_of_a_triangle = (height * base)/2
+    area_of_a_triangle = (height * base) / 2
     return HttpResponse(area_of_a_triangle)
 
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('squares/', square_area_view, name='square'),
-    path('circles/', circle_area_view, name='circle'),
-    path('triangles/height/<int:height>/base/<int:base>/', triangle_area_view, name='triangle'),
+    path("admin/", admin.site.urls),
+    path("squares/", square_area_view, name="square"),
+    path("circles/", circle_area_view, name="circle"),
+    path(
+        "triangles/height/<int:height>/base/<int:base>/",
+        triangle_area_view,
+        name="triangle",
+    ),
     path("api/v1/pokemon/", include("pokemon_app.urls")),
+    path("api/v1/moves/", include("moves_app.urls")),
 ]
